@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+void display(int matrix[][3])
+{
+    for(int i=0; i<3; i++)
+    {
+        for(int j=0; j<3; j++)
+        {
+            printf("%d ",matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void transpose(int matrix[][3])
+{
+    for(int i=0; i<3; i++)
+    {
+        for(int j=i+1; j<3; j++)
+        {
+            int temp=matrix[i][j];
+            matrix[i][j]=matrix[j][i];
+            matrix[j][i]=temp;
+        }
+    }
+}
+int main()
+{
+    int matrix[3][3];
+    printf("Enter the values for a 3x3 matrix: \n");
+    for(int i=0; i<3; i++)
+    {
+        for(int j=0; j<3; j++)
+        {
+            scanf("%d",&matrix[i][j]);
+        }
+    }
+    printf("Original Matrix: \n");
+    display(matrix);
+    transpose(matrix);
+    printf("Transpose of Matrix: \n");
+    display(matrix);
+    return 0;
+}
